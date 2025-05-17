@@ -1,50 +1,58 @@
 import Image from "next/image";
+import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
+
 import styles from "./page.module.css";
+import { allAppData } from "@/lib/app_data/app_data";
+import { AppContainer } from "@/lib/components/AppContainer/AppContainer";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        
+        <section id="personal_info" className={styles.personalInfo}>
+          
+          <div className={styles.nameContainer}>
+            <h1>Edgar Martinez Chavez</h1>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+            <div className={styles.personalLinks}>
+              <a> <FiMail /> Email</a>
+              <a href="https://github.com/Edgar-M123"> <FiGithub /> Github</a>
+              <a href="https://www.linkedin.com/in/edgar-m123"> <FiLinkedin /> LinkedIn</a>
+            </div>
+
+          </div>
+          
+          <Image
+            className={styles.profilePic}
+            src="/edgar_profile_pic.jpg"
+            alt="Next.js logo"
+            width={150}
+            height={150}
+            priority
+          />
+        </section>
+        
+
+        <section id="about_me" className={styles.ctas}>
+          All I want is to make something cool that people like and use.<br/><br/>
+          I tell my girlfriend that one day, I'll be building things like Iron Man.<br/><br/>
+          She laughs.
+        </section>
+
+        <section id="my_apps" className={styles.appsContainer}>
+          <h2>My Apps</h2>
+
+          <div style={{display: 'flex', width: "100%"}}>
+            {Object.entries(allAppData).map((value, index) => <AppContainer key={index} app_id={value[0]} />) }
+          </div>
+
+
+        </section>
+
+
+
+
       </main>
       <footer className={styles.footer}>
         <a

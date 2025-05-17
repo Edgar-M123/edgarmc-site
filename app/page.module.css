@@ -6,13 +6,10 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  padding-top: 5rem;
   font-family: var(--font-geist-sans);
 }
 
@@ -31,7 +28,8 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  grid-row-start: 2;
+  width: 100%;
+  max-width: var(--content-width);
 }
 
 .main ol {
@@ -54,6 +52,48 @@
   padding: 2px 4px;
   border-radius: 4px;
   font-weight: 600;
+}
+
+.personalInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 4rem;
+  width: 100%;
+}
+
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.my_apps {
+  display: flex;
+}
+
+.personalLinks {
+  display: flex;
+  color: grey;
+  font-size: 2rem;
+  gap: 5rem;
+  align-items: center;
+  text-align: center;
+}
+
+.personalLinks a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 150ms;
+}
+.personalLinks a:hover {
+  color: white
+}
+
+.profilePic {
+  aspect-ratio: 1;
+  border-radius: 9999;
 }
 
 .ctas {
