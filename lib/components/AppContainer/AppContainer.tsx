@@ -39,23 +39,32 @@ export function AppContainer(props: {app_id: string}) {
 
     const data = React.useMemo(() => allAppData[props.app_id], [props.app_id]);
 
+    const [hover, setHover] = React.useState(false);
     const [active, setActive] = React.useState(false);
+
+    const onMouseOver = React.useCallback(() => setHover(true), [])
+    const onMouseOut = React.useCallback(() => setHover(false), [])
     
 
     return (
 
-        <div className={styles.container}>
 
-            <div className={styles.appContainer}>
+            <button className={styles.appContainer} onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
                 
-                <div className={styles.title} style={{color: data.color}}>
-                    <img src={data.logo} />
-                    {data.title}
+                <div style={{display: "flex", gap: "10px", width: "100%"}}>
+                    <img src={data.logo} className={styles.logo}/>
+
+                    <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+                        <p className={styles.title} style={{color: data.color}}>
+                            {data.title}
+                        </p>
+                        
+                        <p className={styles.subtitle} style={{color: data.color}}>
+                            {data.subtitle}
+                        </p>
+                    </div>
                 </div>
-                
-                <div className={styles.subtitle} style={{color: data.color}}>
-                    {data.subtitle}
-                </div>
+
 
                 {active ? (
                     <MediaContainer app_data={data} />
@@ -68,14 +77,10 @@ export function AppContainer(props: {app_id: string}) {
                     />
                 )}
 
-
-
-                <div className={styles.infoContainer}>
-
-                </div>
+                <p style={{color: hover ? "white" : "transparent", transition: "150ms"}}>Click to see more</p>
 
                 
-            </div>
-        </div>
+                
+            </button>
     )
 }

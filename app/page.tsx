@@ -16,7 +16,7 @@ export default function Home() {
             <h1>Edgar Martinez Chavez</h1>
 
             <div className={styles.personalLinks}>
-              <a> <FiMail /> Email</a>
+              <button style={{background: "none", cursor: "pointer"}}> <FiMail /> Email</button>
               <a href="https://github.com/Edgar-M123"> <FiGithub /> Github</a>
               <a href="https://www.linkedin.com/in/edgar-m123"> <FiLinkedin /> LinkedIn</a>
             </div>
@@ -43,7 +43,7 @@ export default function Home() {
         <section id="my_apps" className={styles.appsContainer}>
           <h2>My Apps</h2>
 
-          <div style={{display: 'flex', width: "100%"}}>
+          <div style={{display: 'flex', width: "100%", overflowX: "scroll", scrollbarWidth: "thin", scrollbarColor: "grey black"}}>
             {Object.entries(allAppData).map((value, index) => <AppContainer key={index} app_id={value[0]} />) }
           </div>
 
