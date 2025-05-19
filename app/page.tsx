@@ -1,11 +1,19 @@
+'use client'
 import Image from "next/image";
 import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
 
 import styles from "./page.module.css";
 import { allAppData } from "@/lib/app_data/app_data";
-import { AppContainer } from "@/lib/components/AppContainer/AppContainer";
+import { AppCollapsed } from "@/lib/components/AppCollapsed/AppCollapsed";
+import { useAppDetails } from "@/lib/contexts/hooks/useAppDetails";
+import { AppExpanded } from "@/lib/components/AppExpanded/AppExpanded";
+import { AnimatePresence } from "motion/react";
 
 export default function Home() {
+
+  const {selectedApp} = useAppDetails()
+  
+  
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -17,8 +25,8 @@ export default function Home() {
 
             <div className={styles.personalLinks}>
               <button style={{background: "none", cursor: "pointer"}}> <FiMail /> Email</button>
-              <a href="https://github.com/Edgar-M123"> <FiGithub /> Github</a>
-              <a href="https://www.linkedin.com/in/edgar-m123"> <FiLinkedin /> LinkedIn</a>
+              <a href="https://github.com/Edgar-M123" target="_blank"> <FiGithub /> Github</a>
+              <a href="https://www.linkedin.com/in/edgar-m123" target="_blank"> <FiLinkedin /> LinkedIn</a>
             </div>
 
           </div>
@@ -44,8 +52,12 @@ export default function Home() {
           <h2>My Apps</h2>
 
           <div style={{display: 'flex', width: "100%", overflowX: "scroll", scrollbarWidth: "thin", scrollbarColor: "grey black"}}>
-            {Object.entries(allAppData).map((value, index) => <AppContainer key={index} app_id={value[0]} />) }
+            {Object.entries(allAppData).map((value, index) => <AppCollapsed key={index} app_id={value[0]} isSelected={selectedApp == value[0]} />) }
           </div>
+
+          <AnimatePresence>
+            {selectedApp && <AppExpanded app_id={selectedApp} />}
+          </AnimatePresence>
 
 
         </section>

@@ -1,33 +1,25 @@
 
+
 .container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 34rem;
+    max-width: 34rem;
     align-items: center;
-}
-
-.appContainer {
-    display: flex;
-    flex-direction: column;
-    max-width: 33rem;
-    align-items: center;
-    object-fit: contain;
     padding: 1rem;
     border-radius: 2rem;
     gap: 1rem;
-    transition: 150ms ease;
     background-color: transparent;
     border: 1px solid transparent;
     cursor: pointer;
 }
 
-.appContainer:hover {
+.container:hover {
     border: 1px solid grey;
 }
 
 .image {
     display: flex;
-    position: relative;
     border-radius: 20;
     max-width: 100%;
     object-fit: contain;
@@ -43,7 +35,6 @@
     height: 5rem;
     object-fit: contain;
 }
-
 
 .title {
     display: flex;
@@ -61,12 +52,3 @@
     text-align: left;
 }
 
-.mediaCategory {
-    display: flex;
-    color: "white";
-    background-color: transparent;
-    border: 0;
-    padding: 0.3rem;
-    padding-right: 0.6rem;
-    padding-left: 0.6rem;
-}

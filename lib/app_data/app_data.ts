@@ -10,8 +10,8 @@ const rizzLabAppData: PortfolioAppData = {
     thumbnail: "/rizz_lab_pics/rizzlab_thumbnail.png",
     logo: "/rizz_lab_pics/rizzlab_icon.png",
     app_info: {
-        app_store_url: "",
-        play_store_url: "",
+        app_store_url: "https://apps.apple.com/us/app/rizz-lab/id6739786282",
+        play_store_url: "https://play.google.com/store/apps/details?id=com.ekcsoftware.rizzlab",
         pics: [
             "/rizz_lab_pics/rizzlabai-sc.png", 
             "/rizz_lab_pics/rizz-multiplayer.png", 
